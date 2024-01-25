@@ -68,6 +68,23 @@ export class KnapsackSolution implements Solution {
         return totalValue;
     }
 
+    public clone(): Solution {
+        return new KnapsackSolution({
+            problem: this.problem,
+            items: [...this.items],
+            itemsCarried: [...this.itemsCarried],
+            fitness: this.fitness,
+        });
+    }
+
+    public equals(solution: Solution): boolean {
+        if (!(solution instanceof KnapsackSolution)) {
+            return false;
+        }
+
+        return this.items.every((item, index) => item === solution.items[index]);
+    }
+
     public print(): void {
         console.log("Knapsack Problem");
         console.log("Max Capacity: ", this.problem.capacity);

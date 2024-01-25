@@ -6,3 +6,5 @@ function main() {
 
     solution.print();
 }
+
+main();
